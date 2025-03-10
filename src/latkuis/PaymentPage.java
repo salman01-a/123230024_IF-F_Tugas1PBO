@@ -38,8 +38,8 @@ public class PaymentPage extends JFrame implements ActionListener {
         this.Harga = harga;
         this.User = user;
         setVisible(true);
-        setSize(720, 480);
-        setTitle("Halaman Login");
+        setSize(360, 480);
+        setTitle("Halaman Pembelian");
         setLocationRelativeTo(null);
         setAlwaysOnTop(true);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -97,8 +97,8 @@ public class PaymentPage extends JFrame implements ActionListener {
         try {
             if (e.getSource() == beli) {
                 jumlahBeli.setText(Integer.parseInt(Jumlah.getText()) + " pcs");
-                ppnBeli.setText("Rp. " + Integer.toString(Harga * 11/100));
-                HargaBeli.setText("Rp. "+ Integer.toString((Harga * Integer.parseInt(Jumlah.getText())) + (Harga * 11/100)  ));
+                ppnBeli.setText("Rp. " + Integer.toString(Harga * Integer.parseInt(Jumlah.getText()) * 11/100));
+                HargaBeli.setText("Rp. "+ Integer.toString(((Harga * Integer.parseInt(Jumlah.getText()))) + (Harga * Integer.parseInt(Jumlah.getText()) * 11/100)) );
             }else if(e.getSource()== kembali){
                 new HomePage(User);
                 dispose();  

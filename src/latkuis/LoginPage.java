@@ -18,10 +18,11 @@ public class LoginPage extends JFrame implements ActionListener {
     JLabel password = new JLabel("Password");
     JTextField user = new JTextField();
     JPasswordField pass = new JPasswordField();
+    JButton reset = new JButton("Reset");
 
     LoginPage() {
         setVisible(true);
-        setSize(480, 360);
+        setSize(360, 360);
         setTitle("Halaman Login");
         setLocationRelativeTo(null);
         setAlwaysOnTop(true);
@@ -33,14 +34,16 @@ public class LoginPage extends JFrame implements ActionListener {
         add(password);
         add(pass);
         add(user);
+        add(reset);
 
-        Login.setBounds(170, 250, 100, 30);
+        Login.setBounds(20, 170, 100, 30);
+        reset.setBounds(120, 170, 100, 30);
         username.setBounds(20, 30, 100, 30);
         password.setBounds(20, 80, 100, 30);
         user.setBounds(20, 50, 200, 35);
         pass.setBounds(20, 100, 200, 35);
         Login.addActionListener(this);
-        
+        reset.addActionListener(this);
     }
     
     @Override
@@ -50,13 +53,17 @@ public class LoginPage extends JFrame implements ActionListener {
             String Pass = new String(pass.getPassword());
 
             if (e.getSource() == Login) {
-                if (User.equals("123230024") && Pass.equals("024")) {
+                if (User.equals("1") && Pass.equals("1")) {
                     new HomePage(User);
                     dispose();
                 } else {
                     JOptionPane.showMessageDialog(this, "Salah Password Cik");
                 }
 
+            }else if(e.getSource()== reset){
+            user.setText("");
+            pass.setText("");
+            
             }
 
         } catch (Exception err) {

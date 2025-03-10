@@ -19,13 +19,14 @@ public class HomePage extends JFrame implements ActionListener {
     JButton dewasa = new JButton("DVD Dewasa");
     JButton lansia = new JButton("DVD Lansia");
     JButton logout = new JButton("Log Out");
-    
+
     String User;
+
     HomePage(String user) {
         this.User = user;
         setVisible(true);
         setSize(720, 480);
-        setTitle("Halaman Login");
+        setTitle("Halaman Utama");
         setLocationRelativeTo(null);
         setAlwaysOnTop(true);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -39,16 +40,16 @@ public class HomePage extends JFrame implements ActionListener {
         add(logout);
 
         welkam.setText("Selamat Datang " + user);
-        welkam.setBounds(10, 10, 1000, 100);
-
-        info.setBounds(10, 60, 1000, 30);
-
-        anak.setBounds(10, 100, 160, 50);
-        dewasa.setBounds(250, 100, 160, 50);
-        lansia.setBounds(500, 100, 160, 50);
-
-        logout.setBounds(175, 240, 400, 50);
+        welkam.setBounds(20, 20, 680, 40);  
+        info.setBounds(20, 70, 680, 30);
         
+        
+        anak.setBounds(95, 150, 150, 50);
+        dewasa.setBounds(285, 150, 150, 50);  
+        lansia.setBounds(475, 150, 150, 50);   
+        
+        
+        logout.setBounds(260, 380, 200, 50);
         anak.addActionListener(this);
         dewasa.addActionListener(this);
         lansia.addActionListener(this);
@@ -59,20 +60,20 @@ public class HomePage extends JFrame implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         try {
             if (e.getSource() == anak) {
-                new PaymentPage(User,"DVD Anak", 27891);
+                new PaymentPage(User, "DVD Anak", 27891);
                 dispose();
             } else if (e.getSource() == dewasa) {
-                new PaymentPage(User,"DVD Dewasa", 35396);
+                new PaymentPage(User, "DVD Dewasa", 35396);
                 dispose();
-            } else if (e.getSource() == lansia){
-                new PaymentPage(User,"DVD Lansia", 38550);
+            } else if (e.getSource() == lansia) {
+                new PaymentPage(User, "DVD Lansia", 38550);
                 dispose();
-            } else if(e.getSource() == logout){
+            } else if (e.getSource() == logout) {
                 new LoginPage();
                 dispose();
             }
         } catch (Exception err) {
-           JOptionPane.showMessageDialog(this, err);
+            JOptionPane.showMessageDialog(this, err);
         }
 
     }
