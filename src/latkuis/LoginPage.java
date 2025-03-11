@@ -53,7 +53,7 @@ public class LoginPage extends JFrame implements ActionListener {
             String Pass = new String(pass.getPassword());
 
             if (e.getSource() == Login) {
-                if (User.equals("1") && Pass.equals("1")) {
+                if (User.equals("123230024") && Pass.equals("240032321")) {
                     new HomePage(User);
                     dispose();
                 } else {
